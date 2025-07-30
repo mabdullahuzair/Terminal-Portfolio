@@ -34,7 +34,11 @@ function App() {
         e.preventDefault();
         const element = document.querySelector(target.hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
         }
       }
     };
@@ -46,7 +50,7 @@ function App() {
   return (
     <ThemeProvider>
       <CustomCursor />
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-gray-900 transition-all duration-500 ease-in-out">
         <AnimatePresence mode="wait">
           {isLoading ? (
             <LoadingScreen key="loading" onLoadingComplete={handleLoadingComplete} />
@@ -55,7 +59,7 @@ function App() {
               key="main"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               <Navbar onTerminalToggle={toggleTerminal} />
               <AnimatePresence>

@@ -25,11 +25,11 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-50 dark:bg-blue-900/20',
       skills: [
-        { name: 'HTML5', level: 95, experience: '3+ years', projects: 15 },
-        { name: 'CSS3', level: 90, experience: '3+ years', projects: 15 },
-        { name: 'Bootstrap', level: 85, experience: '2+ years', projects: 10 },
-        { name: 'Tailwind CSS', level: 92, experience: '2+ years', projects: 8 },
-        { name: 'JavaScript', level: 88, experience: '2+ years', projects: 12 },
+        { name: 'HTML5', level: 95 },
+        { name: 'CSS3', level: 90 },
+        { name: 'Bootstrap', level: 85 },
+        { name: 'Tailwind CSS', level: 92 },
+        { name: 'JavaScript', level: 88 },
       ]
     },
     {
@@ -38,10 +38,10 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50 dark:bg-green-900/20',
       skills: [
-        { name: 'PHP', level: 85, experience: '2+ years', projects: 8 },
-        { name: 'Node.js', level: 80, experience: '1+ years', projects: 6 },
-        { name: 'Express.js', level: 78, experience: '1+ years', projects: 5 },
-        { name: 'RESTful APIs', level: 85, experience: '2+ years', projects: 10 },
+        { name: 'PHP', level: 85 },
+        { name: 'Node.js', level: 80 },
+        { name: 'Express.js', level: 78 },
+        { name: 'RESTful APIs', level: 85 },
       ]
     },
     {
@@ -50,8 +50,8 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-50 dark:bg-purple-900/20',
       skills: [
-        { name: 'MySQL', level: 88, experience: '2+ years', projects: 12 },
-        { name: 'MongoDB', level: 82, experience: '1+ years', projects: 6 },
+        { name: 'MySQL', level: 88 },
+        { name: 'MongoDB', level: 82 },
       ]
     },
     {
@@ -60,10 +60,10 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-orange-500 to-red-500',
       bgColor: 'bg-orange-50 dark:bg-orange-900/20',
       skills: [
-        { name: 'Git & GitHub', level: 90, experience: '2+ years', projects: 20 },
-        { name: 'Postman', level: 85, experience: '2+ years', projects: 15 },
-        { name: 'VS Code', level: 95, experience: '3+ years', projects: 25 },
-        { name: 'SEO', level: 88, experience: '1+ years', projects: 8 },
+        { name: 'Git & GitHub', level: 90 },
+        { name: 'Postman', level: 85 },
+        { name: 'VS Code', level: 95 },
+        { name: 'SEO', level: 88 },
       ]
     },
     {
@@ -72,10 +72,10 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-indigo-500 to-blue-500',
       bgColor: 'bg-indigo-50 dark:bg-indigo-900/20',
       skills: [
-        { name: 'C', level: 80, experience: '2+ years', projects: 5 },
-        { name: 'C++', level: 82, experience: '2+ years', projects: 6 },
-        { name: 'JavaScript', level: 88, experience: '2+ years', projects: 12 },
-        { name: 'Python', level: 75, experience: '1+ years', projects: 4 },
+        { name: 'C', level: 80 },
+        { name: 'C++', level: 82 },
+        { name: 'JavaScript', level: 88 },
+        { name: 'Python', level: 75 },
       ]
     },
     {
@@ -84,10 +84,10 @@ const InteractiveSkills: React.FC = () => {
       color: 'from-yellow-500 to-orange-500',
       bgColor: 'bg-yellow-50 dark:bg-yellow-900/20',
       skills: [
-        { name: 'Debugging', level: 90, experience: '2+ years', projects: 20 },
-        { name: 'Agile', level: 85, experience: '1+ years', projects: 8 },
-        { name: 'Machine Learning', level: 65, experience: '6 months', projects: 2 },
-        { name: 'Problem Solving', level: 92, experience: '3+ years', projects: 25 },
+        { name: 'Debugging', level: 90 },
+        { name: 'Agile', level: 85 },
+        { name: 'Machine Learning', level: 65 },
+        { name: 'Problem Solving', level: 92 },
       ]
     },
   ];
@@ -159,13 +159,23 @@ const InteractiveSkills: React.FC = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className={`relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+              className={`relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer group ${
                 selectedCategory === categoryIndex ? 'ring-4 ring-blue-500 scale-105' : ''
               }`}
+              style={{ transformStyle: 'preserve-3d' }}
               onClick={() => toggleCategory(categoryIndex)}
+              whileHover={{ 
+                scale: 1.05,
+                rotateY: collapsedCategories.has(categoryIndex) ? 0 : 5,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              transition={{ duration: 0.3 }}
             >
               {/* Background Pattern */}
               <div className={`absolute inset-0 ${category.bgColor} rounded-2xl opacity-20`}></div>
+              
+              {/* Hover gradient overlay */}
+              <div className={`absolute inset-0 bg-gradient-to-r ${category.color} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
               
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
@@ -234,14 +244,6 @@ const InteractiveSkills: React.FC = () => {
                           />
                         </motion.div>
                       </div>
-
-                      {/* Always show skill details */}
-                      <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-2 mt-2">
-                        <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400">
-                          <span>Experience: {skill.experience}</span>
-                          <span>Projects: {skill.projects}</span>
-                        </div>
-                      </div>
                     </motion.div>
                   ))}
                 </div>
@@ -272,14 +274,14 @@ const InteractiveSkills: React.FC = () => {
         >
           {[
             { label: 'Total Skills', value: '21+', icon: '🎯' },
-            { label: 'Years Experience', value: '4+', icon: '⏱️' },
-            { label: 'Projects Built', value: '15+', icon: '🚀' },
+            { label: 'Years Experience', value: '1+', icon: '⏱️' },
+            { label: 'Projects Built', value: '5+', icon: '🚀' },
             { label: 'Technologies', value: '10+', icon: '⚡' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="text-center p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg"
-              whileHover={{ scale: 1.05, y: -5 }}
+              className="text-center p-4 md:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -5, rotateY: 5 }}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1.4 + index * 0.1 }}

@@ -25,6 +25,15 @@ body {
   cursor: none;
 }
 
+/* Custom cursor for buttons and interactive elements */
+button, a, [role="button"], .cursor-pointer {
+  cursor: none !important;
+}
+
+button:hover, a:hover, [role="button"]:hover, .cursor-pointer:hover {
+  cursor: none !important;
+}
+
 .cursor {
   position: fixed;
   width: 20px;
@@ -34,7 +43,16 @@ body {
   pointer-events: none;
   z-index: 99999;
   mix-blend-mode: difference;
-  transition: transform 0.1s ease;
+  transition: transform 0.05s ease;
+}
+
+/* Cursor hover states */
+button:hover ~ .cursor,
+a:hover ~ .cursor,
+[role="button"]:hover ~ .cursor,
+.cursor-pointer:hover ~ .cursor {
+  transform: scale(1.5);
+  background: linear-gradient(45deg, #f59e0b, #ef4444);
 }
 
 .cursor-trail {
@@ -45,6 +63,16 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
+}
+
+/* Smooth scrolling for all elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (max-width: 768px) {

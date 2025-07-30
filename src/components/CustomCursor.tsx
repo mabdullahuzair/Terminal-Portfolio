@@ -25,7 +25,7 @@ const CustomCursor: React.FC = () => {
   useEffect(() => {
     const cleanup = setInterval(() => {
       setTrails(prev => prev.slice(-3));
-    }, 50);
+    }, 30);
 
     return () => clearInterval(cleanup);
   }, []);
@@ -41,7 +41,7 @@ const CustomCursor: React.FC = () => {
         }}
         transition={{
           type: "tween",
-          duration: 0.05,
+          duration: 0.02,
           ease: "easeOut"
         }}
         style={{
@@ -68,7 +68,7 @@ const CustomCursor: React.FC = () => {
             y: trail.y - 3,
           }}
           transition={{
-            duration: 0.2,
+            duration: 0.15,
             ease: "easeOut",
           }}
           style={{
