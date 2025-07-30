@@ -36,7 +36,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
 
   const responses = {
     whoami: [
-      "🤖 AbduBot here! I'm Abdullah's digital buddy. He's a Software Engineering student at UCP with a 3.6 CGPA. Not bad for someone who probably drinks too much coffee! ☕",
+      "🤖 Bot here! I'm Abdullah's digital buddy. He's a Software Engineering student at UCP with a 3.6 CGPA. Not bad for someone who probably drinks too much coffee! ☕",
       "👨‍💻 Meet Muhammad Abdullah Uzair - a full-stack developer who thinks debugging is a sport. Currently studying Software Engineering at University of Central Punjab.",
       "🚀 Abdullah Uzair: Software Engineering student, full-stack developer, and professional bug hunter. I'm his terminal sidekick - think of me as his digital wingman!"
     ],
@@ -59,7 +59,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
       "🤝 Let's Connect!\n\n📧 abdullahuzair860@gmail.com\n📱 03034673255\n🌍 Lahore, Pakistan\n💼 LinkedIn: abdullah-uzair-2a18b9278\n\nFair warning: He might talk your ear off about the latest JavaScript framework! 😄"
     ],
     help: [
-      "🤖 AbduBot Command Center:\n\n• whoami - Learn about Abdullah\n• skills - View tech stack\n• projects - See his work\n• experience - Work history\n• education - Academic background\n• contact - Get in touch\n• joke - Developer humor\n• quote - Motivational quotes\n• coffee - Virtual caffeine\n• download resume - Get his CV\n• theme - Toggle dark/light mode\n• clear - Clean the terminal\n\nI'm like a Swiss Army knife, but for portfolio info! 🔧"
+      "🤖 Bot Command Center:\n\n• whoami - Learn about Abdullah\n• skills - View tech stack\n• projects - See his work\n• experience - Work history\n• education - Academic background\n• contact - Get in touch\n• joke - Developer humor\n• quote - Motivational quotes\n• coffee - Virtual caffeine\n• download resume - Get his CV\n• theme - Toggle dark/light mode\n• clear - Clean the terminal\n\nI'm like a Swiss Army knife, but for portfolio info! 🔧"
     ],
     joke: [
       "😂 Why do programmers prefer dark mode?\n\nBecause light attracts bugs! 🐛\n\n(Abdullah definitely agrees with this one!)",
@@ -94,7 +94,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen && !isMinimized) {
-      const welcomeMessage = "🤖 AbduBot v2.0 initialized successfully!\n\n👋 Hey there! I'm AbduBot, Abdullah's digital buddy and your friendly neighborhood terminal assistant!\n\n💡 Type 'help' to see what I can do, or try commands like 'whoami', 'skills', or 'projects'.\n\nLet's explore Abdullah's world together! 🚀";
+      const welcomeMessage = "🤖 Bot v2.0 initialized successfully!\n\n👋 Hey there! I'm Bot, Abdullah's digital buddy and your friendly neighborhood terminal assistant!\n\n💡 Type 'help' to see what I can do, or try commands like 'whoami', 'skills', or 'projects'.\n\nLet's explore Abdullah's world together! 🚀";
       
       setCommands([{
         input: 'system',
@@ -285,7 +285,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
             </div>
             <div className="flex items-center ml-4">
               <TerminalIcon className="w-4 h-4 text-green-400 mr-2" />
-              <span className="text-green-400 font-mono text-sm">AbduBot Terminal v2.0</span>
+              <span className="text-green-400 font-mono text-sm">Bot Terminal v2.0</span>
             </div>
           </div>
           <div className="flex items-center space-x-2">
@@ -347,7 +347,7 @@ const Terminal: React.FC<TerminalProps> = ({ isOpen, onClose }) => {
               
               {isTyping && (
                 <div className="flex items-center text-yellow-400">
-                  <span>AbduBot is typing</span>
+                  <span>Bot is typing</span>
                   <motion.span
                     animate={{ opacity: [1, 0, 1] }}
                     transition={{ duration: 1, repeat: Infinity }}

@@ -73,32 +73,20 @@ const Hero: React.FC<HeroProps> = ({ onTerminalToggle }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-8 mt-20"
         >
-          <div className="mb-6">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-1"
-            >
-              <div className="w-full h-full rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-2xl font-bold text-gray-800 dark:text-gray-200">
-                AU
-              </div>
-            </motion.div>
-          </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-100 mb-6 leading-tight">
-            Hi, I'm Muhammad Abdullah
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            Hi, I'm <span className="text-purple-600 dark:text-purple-400">Muhammad Abdullah</span>
             <motion.span
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 1, repeat: Infinity }}
-              className="text-blue-600 dark:text-blue-400"
+              className="text-purple-600 dark:text-purple-400"
             >
               
             </motion.span>
             <br />
-            <span className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300">
+            <span className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
               Software Engineering student & Full-Stack Web Developer
             </span>
           </h1>
@@ -126,7 +114,7 @@ const Hero: React.FC<HeroProps> = ({ onTerminalToggle }) => {
                   </div>
                   <div className="flex items-center ml-4">
                     <Terminal className="w-4 h-4 text-green-400 mr-2" />
-                    <span className="text-green-400 font-mono text-sm">AbduBot Terminal</span>
+                    <span className="text-green-400 font-mono text-sm">Bot Terminal</span>
                   </div>
                 </div>
               </div>
@@ -144,7 +132,7 @@ const Hero: React.FC<HeroProps> = ({ onTerminalToggle }) => {
                   </motion.span>
                 </div>
                 <div className="text-green-300 mb-3 text-lg font-semibold">
-                  🤖 Click here to interact with AbduBot!
+                  🤖 Click here to interact with Bot!
                 </div>
                 <div className="text-gray-400 text-sm">
                   Try commands: whoami, skills, projects, experience, help

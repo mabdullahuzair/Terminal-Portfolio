@@ -11,7 +11,7 @@ const CustomCursor: React.FC = () => {
       
       // Add trail point with reduced frequency for smoother performance
       const newTrail = { x: e.clientX, y: e.clientY, id: Date.now() };
-      setTrails(prev => [...prev.slice(-6), newTrail]); // Keep last 6 trail points
+      setTrails(prev => [...prev.slice(-4), newTrail]); // Keep last 4 trail points
     };
 
     window.addEventListener('mousemove', updateMousePosition);
@@ -24,7 +24,7 @@ const CustomCursor: React.FC = () => {
   // Clean up old trail points more frequently
   useEffect(() => {
     const cleanup = setInterval(() => {
-      setTrails(prev => prev.slice(-4));
+      setTrails(prev => prev.slice(-3));
     }, 50);
 
     return () => clearInterval(cleanup);
@@ -41,7 +41,7 @@ const CustomCursor: React.FC = () => {
         }}
         transition={{
           type: "tween",
-          duration: 0.1,
+          duration: 0.05,
           ease: "easeOut"
         }}
         style={{
@@ -68,7 +68,7 @@ const CustomCursor: React.FC = () => {
             y: trail.y - 3,
           }}
           transition={{
-            duration: 0.4,
+            duration: 0.2,
             ease: "easeOut",
           }}
           style={{
